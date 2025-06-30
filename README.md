@@ -9,10 +9,7 @@ This is a group project for the Data Structures and Algorithms (CCDSALG) course 
 2025-06-30: Added Selection Sort and suggestions
 
 📁 Project Structure
-bash
-Copy
-Edit
-project-root/
+
 ├── data/                  # Contains datasets with ID-number and name pairs  
 ├── source/                # Source code directory
 │   ├── Main.java          # Entry point for running algorithms  
