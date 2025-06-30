@@ -46,6 +46,20 @@ public class SortingAlgorithms {
 
     }
 
+    public void bubbleSort(Record[] arr, int n) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j].getIdNumber() > arr[j + 1].getIdNumber()) {
+                    Record temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+
+
     /*
      * Define AT LEAST ONE more sorting algorithm here, apart from the
      * ones given above. Make sure that the method accepts an array of
