@@ -16,8 +16,29 @@ public class SortingAlgorithms {
     }
 
     public void selectionSort(Record[] arr, int n) {
-        // TODO: Implement this sorting algorithm here.
 
+        //Loop through the whole array
+        for(int i = 0; i < n; i++) {
+
+            //Assume first element is the min
+            int minIndex = i;
+
+            //keeps track of whats already sorted
+            for(int j = i+1; j < n; j++) {
+
+                //if it finds a smaller one, change minIndex
+                if(arr[j].getIdNumber() < arr[minIndex].getIdNumber()) {
+                    minIndex = j;
+                }
+            }
+
+            //If it found a smaller value, swap
+            if(minIndex != i){
+                Record temp = arr[minIndex];
+                arr[minIndex] = arr[i];
+                arr[i] = temp;
+            }
+        }
     }
 
     public void mergeSort(Record[] arr, int p, int r) {
@@ -29,6 +50,10 @@ public class SortingAlgorithms {
      * Define AT LEAST ONE more sorting algorithm here, apart from the
      * ones given above. Make sure that the method accepts an array of
      * records
+     *
+     * suggestion ko lang:
+     * -bubble sort para madali buhay
+     * -quick sort
      */
 
 }

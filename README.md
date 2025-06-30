@@ -6,6 +6,7 @@ This is a group project for the **Data Structures and Algorithms** course (CCDSA
 ## 📝 Update Log
 - **2025-06-29**: Created Repo for MC01, Initialize Starter Files
 - **2025-06-30**: Created a Proper Read me
+- **2025-06-30**: Added Selection Sort and Suggestions
 
 ## 📁 Project Structure
 
