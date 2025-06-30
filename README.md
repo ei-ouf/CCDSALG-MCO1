@@ -29,7 +29,7 @@ Edit
 ## ✅ Implemented Algorithms
 
 - [x] Insertion Sort
-- [x] Selection Sort
+- ✅ Selection Sort
 - [x] Merge Sort
 - [ ] ✅ Custom Algorithm (To be decided)
 
