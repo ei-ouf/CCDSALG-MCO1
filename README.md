@@ -3,10 +3,10 @@ This is a group project for the Data Structures and Algorithms (CCDSALG) course 
 
 ## 📝 Update Log
 2025-06-29: Created repository and initialized starter files
-
 2025-06-30: Added proper README
-
-2025-06-30: Added Selection Sort and suggestions
+2025-06-30: Added Selection Sort 
+2025-06-30: Added Bubble Sort 
+2025-06-30: Added Insertion Sort
 
 ## 📁 Project Structure
 

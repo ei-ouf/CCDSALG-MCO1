@@ -11,8 +11,23 @@ public class SortingAlgorithms {
      */
 
     public void insertionSort(Record[] arr, int n) {
-        // TODO: Implement this sorting algorithm here.
+        // Loop through the whole array
+        for (int i = 1; i < n; i++) {
+            // Store the current Record to be inserted
+            Record key = arr[i];
 
+            // Initialize j to the index before i
+            int j = i - 1;
+
+            //Finds position where to place key
+            while (j >= 0 && arr[j].getIdNumber() > key.getIdNumber()) {
+                arr[j + 1] = arr[j]; //move it to the right, it's okay to override the ar[i]
+                j--; // Move to the (next)previous index
+            }
+
+            // Insert the key at its correct sorted position
+            arr[j + 1] = key;
+        }
     }
 
     public void selectionSort(Record[] arr, int n) {
@@ -46,6 +61,15 @@ public class SortingAlgorithms {
 
     }
 
+    /*
+     * Define AT LEAST ONE more sorting algorithm here, apart from the
+     * ones given above. Make sure that the method accepts an array of
+     * records
+     *
+     * suggestion:
+     * -bubble sort para madali buhay
+     */
+
     public void bubbleSort(Record[] arr, int n) {
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -57,17 +81,4 @@ public class SortingAlgorithms {
             }
         }
     }
-
-
-
-    /*
-     * Define AT LEAST ONE more sorting algorithm here, apart from the
-     * ones given above. Make sure that the method accepts an array of
-     * records
-     *
-     * suggestion ko lang:
-     * -bubble sort para madali buhay
-     * -quick sort
-     */
-
 }
