@@ -57,8 +57,57 @@ public class SortingAlgorithms {
     }
 
     public void mergeSort(Record[] arr, int p, int r) {
-        // TODO: Implement this sorting algorithm here.
+        // Checks for the starting and ending index
+        if (p < r) {
+            // Gets the midpoint of the array
+            int q = (p + r) / 2;
 
+            mergeSort(arr, p, q); // Sorts the left half
+            mergeSort(arr, q + 1, r); // Sorts the right half
+            merge(arr, p, q, r); // Merge both halves
+        }
+    }
+
+    // Helper variable for Merge Sort
+    public void merge(Record[] arr, int p, int q, int r) {
+        // Calculates the size of the subarrays
+        int lSize = q - p + 1;
+        int rSize = r - q;
+
+        // Create temporary arrays to store the values
+        Record[] left = new Record[lSize];
+        Record[] right = new Record[rSize];
+
+        // Copies the left half of arr[] into left[]
+        for (int i = 0; i < lSize; i++)
+            left[i] = arr[p + i];
+        // Copies the right half of arr[] into right[]
+        for (int j = 0; j < rSize; j++)
+            right[j] = arr[q + 1 + j];
+
+        int i = 0;
+        int j = 0;
+        int k = p;
+
+        // Compares the elements from the left[] and right[] arrays
+        while(i < lSize && j < rSize) {
+            // Checks if the left ID number is smaller than or equal to the right ID number
+            if(left[i].getIdNumber() <= right[j].getIdNumber()) {
+                arr[k++] = left[i++]; // Adds the left value to the array
+            } else {
+                arr[k++] = right[j++]; // Otherwise, adds the right value to the array
+            }
+        }
+
+        // Copy the remaining elements from the left[] array
+        while (i < lSize) {
+            arr[k++] = left[i++];
+        }
+
+        // Copy the remaining elements from the right[] array
+        while (j < rSize) {
+            arr[k++] = right[j++];
+        }
     }
 
     /*
