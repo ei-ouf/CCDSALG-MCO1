@@ -7,54 +7,42 @@ public class Main {
 
         almostSortedRecords = fr.readFile("source/data/almostsorted.txt");
         long startTime = System.currentTimeMillis();
-        sorter.bubbleSort(almostSortedRecords, 100000);
+        //The choice for sorting algorithm must be changed manually
+        sorter.quickSort(almostSortedRecords, 0,100000-1);
         long endTime = System.currentTimeMillis();
+        sorter.getOperationTotal();
         System.out.println("Almost Sorted Sorting time: " + (endTime-startTime));
-
-        /*
-        for (int i = 0; i < 100000; i++){
-            System.out.println("number: " + i + " " + almostSortedRecords[i].getIdNumber() + " " + almostSortedRecords[i].getName());
-        }
-         */
 
 
         Record[] random100records;
 
         random100records = fr.readFile("source/data/random100.txt");
         startTime = System.currentTimeMillis();
-        sorter.bubbleSort(random100records, 100);
+        //The choice for sorting algorithm must be changed manually
+        sorter.quickSort(random100records, 0,100-1);
         endTime = System.currentTimeMillis();
+        sorter.getOperationTotal();
         System.out.println("random100records Sorting time: " + (endTime-startTime));
-
-        /*
-        for (int i = 0; i < 100; i++){
-            System.out.println(random100records[i].getIdNumber() + " " + random100records[i].getName());
-        }
-
-         */
 
         Record[] random25000records;
 
         random25000records = fr.readFile("source/data/random25000.txt");
         startTime = System.currentTimeMillis();
-        sorter.bubbleSort(random25000records, 25000);
+        //The choice for sorting algorithm must be changed manually
+        sorter.quickSort(random25000records, 0,25000-1);
         endTime = System.currentTimeMillis();
+        sorter.getOperationTotal();
         System.out.println("random25000records Sorting time: " + (endTime-startTime));
-
-        /*
-        for (int i = 0; i < 25000; i++){
-            System.out.println(random25000records[i].getIdNumber() + " " + random25000records[i].getName());
-        }
-
-         */
 
 
         Record[] random50000records;
 
         random50000records = fr.readFile("source/data/random50000.txt");
         startTime = System.currentTimeMillis();
-        sorter.bubbleSort(random50000records, 50000);
+        //The choice for sorting algorithm must be changed manually
+        sorter.quickSort(random50000records, 0, 50000-1);
         endTime = System.currentTimeMillis();
+        sorter.getOperationTotal();
         System.out.println("random50000records Sorting time: " + (endTime-startTime));
 
 
@@ -62,8 +50,10 @@ public class Main {
 
         random75000records = fr.readFile("source/data/random75000.txt");
         startTime = System.currentTimeMillis();
-        sorter.bubbleSort(random75000records, 75000);
+        //The choice for sorting algorithm must be changed manually
+        sorter.quickSort(random75000records, 0,75000-1);
         endTime = System.currentTimeMillis();
+        sorter.getOperationTotal();
         System.out.println("random75000records Sorting time: " + (endTime-startTime));
 
 
@@ -71,16 +61,20 @@ public class Main {
 
         random100000records = fr.readFile("source/data/random100000.txt");
         startTime = System.currentTimeMillis();
-        sorter.bubbleSort(random100000records, 100000);
+        //The choice for sorting algorithm must be changed manually
+        sorter.quickSort(random100000records, 0,100000-1);
         endTime = System.currentTimeMillis();
+        sorter.getOperationTotal();
         System.out.println("random100000records Sorting time: " + (endTime-startTime));
 
         Record[] totallyReversedRecords;
 
         totallyReversedRecords = fr.readFile("source/data/totallyreversed.txt");
         startTime = System.currentTimeMillis();
-        sorter.bubbleSort(totallyReversedRecords, 100000);
+        //The choice for sorting algorithm must be changed manually
+        sorter.quickSort(totallyReversedRecords, 0,100000-1);
         endTime = System.currentTimeMillis();
+        sorter.getOperationTotal();
         System.out.println("totallyReversedRecords Sorting time: " + (endTime-startTime));
     }
 }
