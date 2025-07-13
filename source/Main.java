@@ -10,7 +10,8 @@ public class Main {
         //The choice for sorting algorithm must be changed manually
         sorter.quickSort(almostSortedRecords, 0,100000-1);
         long endTime = System.currentTimeMillis();
-        sorter.getOperationTotal();
+        //Can be uncommented to display total steps
+        //sorter.displayTotalSteps();
         System.out.println("Almost Sorted Sorting time: " + (endTime-startTime));
 
 
@@ -21,7 +22,8 @@ public class Main {
         //The choice for sorting algorithm must be changed manually
         sorter.quickSort(random100records, 0,100-1);
         endTime = System.currentTimeMillis();
-        sorter.getOperationTotal();
+        //Can be uncommented to display total steps
+        //sorter.displayTotalSteps();
         System.out.println("random100records Sorting time: " + (endTime-startTime));
 
         Record[] random25000records;
@@ -31,7 +33,8 @@ public class Main {
         //The choice for sorting algorithm must be changed manually
         sorter.quickSort(random25000records, 0,25000-1);
         endTime = System.currentTimeMillis();
-        sorter.getOperationTotal();
+        //Can be uncommented to display total steps
+        //sorter.displayTotalSteps();
         System.out.println("random25000records Sorting time: " + (endTime-startTime));
 
 
@@ -42,7 +45,8 @@ public class Main {
         //The choice for sorting algorithm must be changed manually
         sorter.quickSort(random50000records, 0, 50000-1);
         endTime = System.currentTimeMillis();
-        sorter.getOperationTotal();
+        //Can be uncommented to display total steps
+        //sorter.displayTotalSteps();
         System.out.println("random50000records Sorting time: " + (endTime-startTime));
 
 
@@ -53,7 +57,8 @@ public class Main {
         //The choice for sorting algorithm must be changed manually
         sorter.quickSort(random75000records, 0,75000-1);
         endTime = System.currentTimeMillis();
-        sorter.getOperationTotal();
+        //Can be uncommented to display total steps
+        //sorter.displayTotalSteps();
         System.out.println("random75000records Sorting time: " + (endTime-startTime));
 
 
@@ -64,7 +69,8 @@ public class Main {
         //The choice for sorting algorithm must be changed manually
         sorter.quickSort(random100000records, 0,100000-1);
         endTime = System.currentTimeMillis();
-        sorter.getOperationTotal();
+        //Can be uncommented to display total steps
+        //sorter.displayTotalSteps();
         System.out.println("random100000records Sorting time: " + (endTime-startTime));
 
         Record[] totallyReversedRecords;
@@ -74,7 +80,8 @@ public class Main {
         //The choice for sorting algorithm must be changed manually
         sorter.quickSort(totallyReversedRecords, 0,100000-1);
         endTime = System.currentTimeMillis();
-        sorter.getOperationTotal();
+        //Can be uncommented to display total steps
+        //sorter.displayTotalSteps();
         System.out.println("totallyReversedRecords Sorting time: " + (endTime-startTime));
     }
 }
