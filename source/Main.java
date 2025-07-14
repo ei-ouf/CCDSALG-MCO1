@@ -62,6 +62,6 @@ public class Main {
 
         //display
         System.out.println(label + " Sorting time: " + (endTime - startTime) + " ms");
-        sorter.displayTotalSteps();
+        System.out.println("Total number of steps: " + sorter.getTotalSteps());
     }
 }

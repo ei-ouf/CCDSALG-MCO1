@@ -168,14 +168,14 @@ public class SortingAlgorithms {
     }
 
 
-    //Helper method to check the number of steps taken by a sorting algorithm
+    //returns the number of steps taken by a sorting algorithm
 
-     public void displayTotalSteps(){
+     public long getTotalSteps(){
         long totalCount = this.comparisonCount + this.swapCount;
         this.comparisonCount = 0;
         this.swapCount = 0;
 
-        System.out.println("Total number of steps: " + totalCount);
+        return totalCount;
     }
 
 }
