@@ -1,87 +1,67 @@
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
-        // TODO: Use this method to run your experiments.
         FileReader fr = new FileReader();
         SortingAlgorithms sorter = new SortingAlgorithms();
-        Record[] almostSortedRecords;
+        Scanner scanner = new Scanner(System.in);
+        boolean loop = true;
 
-        almostSortedRecords = fr.readFile("source/data/almostsorted.txt");
+        while(loop) {
+
+        // Present the menu to the user
+        System.out.println("Choose a sorting algorithm:");
+        System.out.println("1. Insertion Sort");
+        System.out.println("2. Selection Sort");
+        System.out.println("3. Merge Sort");
+        System.out.println("4. Quick Sort");
+        System.out.println("0. Exit");
+        System.out.print("Enter your choice: ");
+        int choice = scanner.nextInt();
+            // Define a sorting interface
+            SortingMethod selectedSort = null;
+
+            switch (choice) {
+                case 1 -> selectedSort = arr -> sorter.insertionSort(arr, arr.length);
+                case 2 -> selectedSort = arr -> sorter.selectionSort(arr, arr.length);
+                case 3 -> selectedSort = arr -> sorter.mergeSort(arr, 0, arr.length - 1);
+                case 4 -> selectedSort = arr -> sorter.quickSort(arr, 0, arr.length - 1);
+                case 0 -> loop = false;
+                default -> System.out.println("Invalid choice.");
+            }
+
+            //if user selected a sort, run said sort on all files
+            if(choice>=1 && choice<=4) {
+                // Run benchmarks
+                runSortOnFile("almostsorted.txt", fr, sorter, selectedSort, "Almost Sorted");
+                runSortOnFile("random100.txt", fr, sorter, selectedSort, "Random 100");
+                runSortOnFile("random25000.txt", fr, sorter, selectedSort, "Random 25000");
+                runSortOnFile("random50000.txt", fr, sorter, selectedSort, "Random 50000");
+                runSortOnFile("random75000.txt", fr, sorter, selectedSort, "Random 75000");
+                runSortOnFile("random100000.txt", fr, sorter, selectedSort, "Random 100000");
+                runSortOnFile("totallyreversed.txt", fr, sorter, selectedSort, "Totally Reversed");
+            }
+        }
+
+    }
+
+    // Functional interface for sorting methods
+    interface SortingMethod {
+        void sort(Record[] array);
+    }
+
+    // Generalized sorting with timing
+    private static void runSortOnFile(String filename, FileReader fr, SortingAlgorithms sorter, SortingMethod sortMethod, String label) {
+        Record[] data = fr.readFile("source/data/" + filename);
+
+        //sort
         long startTime = System.currentTimeMillis();
-        //The choice for sorting algorithm must be changed manually
-        sorter.quickSort(almostSortedRecords, 0,100000-1);
+        sortMethod.sort(data);
         long endTime = System.currentTimeMillis();
-        //Can be uncommented to display total steps
-        //sorter.displayTotalSteps();
-        System.out.println("Almost Sorted Sorting time: " + (endTime-startTime));
 
-
-        Record[] random100records;
-
-        random100records = fr.readFile("source/data/random100.txt");
-        startTime = System.currentTimeMillis();
-        //The choice for sorting algorithm must be changed manually
-        sorter.quickSort(random100records, 0,100-1);
-        endTime = System.currentTimeMillis();
-        //Can be uncommented to display total steps
-        //sorter.displayTotalSteps();
-        System.out.println("random100records Sorting time: " + (endTime-startTime));
-
-        Record[] random25000records;
-
-        random25000records = fr.readFile("source/data/random25000.txt");
-        startTime = System.currentTimeMillis();
-        //The choice for sorting algorithm must be changed manually
-        sorter.quickSort(random25000records, 0,25000-1);
-        endTime = System.currentTimeMillis();
-        //Can be uncommented to display total steps
-        //sorter.displayTotalSteps();
-        System.out.println("random25000records Sorting time: " + (endTime-startTime));
-
-
-        Record[] random50000records;
-
-        random50000records = fr.readFile("source/data/random50000.txt");
-        startTime = System.currentTimeMillis();
-        //The choice for sorting algorithm must be changed manually
-        sorter.quickSort(random50000records, 0, 50000-1);
-        endTime = System.currentTimeMillis();
-        //Can be uncommented to display total steps
-        //sorter.displayTotalSteps();
-        System.out.println("random50000records Sorting time: " + (endTime-startTime));
-
-
-        Record[] random75000records;
-
-        random75000records = fr.readFile("source/data/random75000.txt");
-        startTime = System.currentTimeMillis();
-        //The choice for sorting algorithm must be changed manually
-        sorter.quickSort(random75000records, 0,75000-1);
-        endTime = System.currentTimeMillis();
-        //Can be uncommented to display total steps
-        //sorter.displayTotalSteps();
-        System.out.println("random75000records Sorting time: " + (endTime-startTime));
-
-
-        Record[] random100000records;
-
-        random100000records = fr.readFile("source/data/random100000.txt");
-        startTime = System.currentTimeMillis();
-        //The choice for sorting algorithm must be changed manually
-        sorter.quickSort(random100000records, 0,100000-1);
-        endTime = System.currentTimeMillis();
-        //Can be uncommented to display total steps
-        //sorter.displayTotalSteps();
-        System.out.println("random100000records Sorting time: " + (endTime-startTime));
-
-        Record[] totallyReversedRecords;
-
-        totallyReversedRecords = fr.readFile("source/data/totallyreversed.txt");
-        startTime = System.currentTimeMillis();
-        //The choice for sorting algorithm must be changed manually
-        sorter.quickSort(totallyReversedRecords, 0,100000-1);
-        endTime = System.currentTimeMillis();
-        //Can be uncommented to display total steps
-        //sorter.displayTotalSteps();
-        System.out.println("totallyReversedRecords Sorting time: " + (endTime-startTime));
+        //display
+        System.out.println(label + " Sorting time: " + (endTime - startTime) + " ms");
+        sorter.displayTotalSteps();
     }
 }
